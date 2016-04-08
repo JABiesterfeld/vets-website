@@ -50,12 +50,12 @@ class Address extends React.Component {
       <div className={isValid ? undefined : 'usa-input-error'}>
         <ErrorableTextInput errorMessage={isValid ? undefined : 'Please enter a valid street address'}
             label="Street"
-            value={this.props.value.street}
+            field={this.props.value.street}
             onValueChange={(update) => {this.handleChange('street', update);}}/>
 
         <ErrorableTextInput errorMessage={isValid ? undefined : 'Please enter a valid city'}
             label="City"
-            value={this.props.value.city}
+            field={this.props.value.city}
             onValueChange={(update) => {this.handleChange('city', update);}}/>
 
         <ErrorableSelect errorMessage={isValid ? undefined : 'Please enter a valid country'}
@@ -72,7 +72,7 @@ class Address extends React.Component {
 
         <ErrorableTextInput errorMessage={isValid ? undefined : 'Please enter a valid ZIP code'}
             label="ZIP Code"
-            value={this.props.value.zipcode}
+            field={this.props.value.zipcode}
             onValueChange={(update) => {this.handleChange('zipcode', update);}}/>
       </div>
     );

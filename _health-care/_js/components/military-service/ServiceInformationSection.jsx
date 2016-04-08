@@ -28,7 +28,7 @@ class ServiceInformationSection extends React.Component {
               label="Last branch of service"
               options={branchesServed}
               value={this.props.data.lastServiceBranch}
-              onUserInput={(update) => {this.props.onStateChange('lastServiceBranch', update);}}/>
+              onValueChange={(update) => {this.props.onStateChange('lastServiceBranch', update);}}/>
 
           <DateInput label="Last entry date"
               day={this.props.data.lastEntryDate.day}
@@ -46,7 +46,7 @@ class ServiceInformationSection extends React.Component {
               label="Discharge Type"
               options={dischargeTypes}
               value={this.props.data.dischargeType}
-              onUserInput={(update) => {this.props.onStateChange('dischargeType', update);}}/>
+              onValueChange={(update) => {this.props.onStateChange('dischargeType', update);}}/>
         </div>
       </div>
     );

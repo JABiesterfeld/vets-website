@@ -64,7 +64,7 @@ class SpouseInformationSection extends React.Component {
         <div className={`${this.props.data.sectionComplete ? 'review-view' : 'edit-view'}`}>
           <div className="input-section">
             <FullName
-                value={this.props.data.spouseFullName}
+                name={this.props.data.spouseFullName}
                 onUserInput={(update) => {this.props.onStateChange('spouseFullName', update);}}/>
 
             <SocialSecurityNumber label="Spouse’s Social Security Number"

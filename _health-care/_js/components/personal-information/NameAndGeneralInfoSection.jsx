@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DateInput from '../form-elements/DateInput';
 import ErrorableCheckbox from '../form-elements/ErrorableCheckbox';
 import ErrorableSelect from '../form-elements/ErrorableSelect';
+import ErrorableTextInput from '../form-elements/ErrorableTextInput';
 import FullName from '../questions/FullName';
 import Gender from '../questions/Gender';
 import MothersMaidenName from './MothersMaidenName';
@@ -30,7 +31,7 @@ class NameAndGeneralInfoSection extends React.Component {
               className={`edit-checkbox ${this.props.reviewSection ? '' : 'hidden'}`}
               onValueChange={(update) => {this.props.onStateChange('sectionComplete', update);}}/>
           <FullName required
-              value={this.props.data.fullName}
+              name={this.props.data.fullName}
               onUserInput={(update) => {this.props.onStateChange('fullName', update);}}/>
           <MothersMaidenName value={this.props.data.mothersMaidenName}
               onUserInput={(update) => {this.props.onStateChange('mothersMaidenName', update);}}/>
@@ -50,13 +51,15 @@ class NameAndGeneralInfoSection extends React.Component {
 
         <div className="input-section">
           <h4>Place of Birth</h4>
-          <label htmlFor="veteran_city_of_birth">City</label>
-          <input type="text" name="veteran[city_of_birth]"/>
-          <State value={this.props.data.state} onUserInput={(update) => {this.props.onStateChange('state', update);}}/>
-          <ErrorableSelect required
-              errorMessage={isNotBlank(this.props.data.maritalStatus) ? undefined : 'Please select a marital status'}
+          <ErrorableTextInput label="City"
+              field={this.props.data.cityOfBirth}
+              onValueChange={(update) => {this.props.onStateChange('cityOfBirth', update);}}/>
+          <State value={this.props.data.stateOfBirth} onUserInput={(update) => {this.props.onStateChange('stateOfBirth', update);}}/>
+          <ErrorableSelect
+              errorMessage={isNotBlank(this.props.data.maritalStatus.value) ? undefined : 'Please select a marital status'}
               label="Current Marital Status"
               options={maritalStatuses}
+              required
               value={this.props.data.maritalStatus}
               onValueChange={(update) => {this.props.onStateChange('maritalStatus', update);}}/>
         </div>
